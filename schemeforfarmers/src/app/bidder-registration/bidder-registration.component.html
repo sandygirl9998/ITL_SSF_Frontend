@@ -1,0 +1,208 @@
+<div class="container-fluid">
+    
+    <div class="container">
+      <div class="alert-message" *ngIf="allAlert">
+        {{ allAlert }}
+      </div>
+      <form [formGroup]="bidderRegisterForm" (ngSubmit)="onRegister()" id="regForm"> 
+        <h2 align="center">Bidder Registration Form </h2>
+        <div *ngIf="step==1">   
+        <div class="form">
+              
+         <h4> <p style="width: 30%">Personal Details</p></h4>
+          <label class="form-label" for="username">Full Name:</label>
+          <input class="form-control" type="text" name="name" formControlName="name" />
+          <div
+            *ngIf="name.invalid && (name.dirty || name.touched)" class="alert-message" >
+            <div *ngIf="name.errors.required" class="error">Name is required.</div>
+            <div *ngIf="name.errors.pattern" class="error">Invalid Name Format</div>
+          </div>
+
+
+          <div class="form-group">
+            <div class="nested-form">
+              <label for="email" class="form-label">Email:</label>
+              <input class="form-control" type="email" name="email" formControlName="emailId" />
+              <div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="alert-message" >
+                <div *ngIf="emailId.errors.required" class="error">Email is required.</div>
+                <div *ngIf="emailId.errors.email" class="error">Invalid Email Id</div>
+              </div>
+            </div>
+
+
+            <div class="nested-form">
+              <label for="contact" class="form-label">Contact:</label>
+              <input class="form-control" type="number" name="contact" formControlName="bidderContact" />
+              <div *ngIf=" bidderContact.invalid &&  (bidderContact.dirty || bidderContact.touched) "  class="alert-message" >
+                <div *ngIf="bidderContact.errors.required" class="error">
+                  Contact is required.
+                </div>
+                <div *ngIf="bidderContact.errors.pattern" class="error">
+                  Invalid Contact Number
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p></p>
+          <h4> <p style="width: 30%">Address Details</p></h4>
+          <div class="form-group">
+            <div class="nested-form">
+              <label for="address" class="form-label">Address Line 1:</label>
+              <textarea rows="3" formControlName="bidderAddressLine1" class="form-control"></textarea>
+              <div *ngIf=" bidderAddressLine1.invalid && (bidderAddressLine1.dirty || bidderAddressLine1.touched) " class="alert-message" >
+                <div *ngIf="bidderAddressLine1.errors.required" class="error">
+                   Address Field is required
+                </div>
+              </div>
+            </div>
+  
+
+            <div class="nested-form">
+              <label for="address" class="form-label">Address Line 2:</label>
+              <textarea rows="3" formControlName="bidderAddressLine2" class="form-control"></textarea>
+              <div *ngIf=" bidderAddressLine2.invalid && (bidderAddressLine2.dirty || bidderAddressLine2.touched) " class="alert-message" >
+                <div *ngIf="bidderAddressLine2.errors.required" class="error">
+                  
+                   Address Field is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nested-form">
+            <div class="form-row mb-4">
+              <div class="col">
+                <label for="state">State: </label>
+                <select class="form-control"  placeholder="State" (change)="changeState($event.target.value)" formControlName="bidderState">
+                  <option>--Choose State--</option>
+                  <option *ngFor="let state of States">{{ state.name }}</option>
+                </select>
+                <div *ngIf=" bidderState.invalid &&  (bidderState.dirty || bidderState.touched) " class="alert-message" >
+                  <div *ngIf="bidderState.errors.required" class="error">
+                    State is required.
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label for="state">City:</label>
+                <select class="form-control" placeholder="City" formControlName="bidderCity" >
+                  <option>--Choose City--</option>
+                  <option *ngFor="let city of cities">{{ city }}</option>
+                </select>
+                <div *ngIf=" bidderCity.invalid && (bidderCity.dirty || bidderCity.touched) " class="alert-message" >
+                
+                  <div *ngIf="bidderCity.errors.required" class="error">City is required.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        <div class="form">
+          <h4> <p style="width: 30%">Bank Details</p></h4>
+          <div class="form-group">
+            <div class="nested-form">
+              <label for="account" class="form-label">Account No.:</label>
+              <input class="form-control" type="number" name="account" formControlName="bidderAccountNumber"
+              />
+              <div  *ngIf=" bidderAccountNumber.invalid &&  (bidderAccountNumber.dirty || bidderAccountNumber.touched)" class="alert-message" >
+                <div *ngIf="bidderAccountNumber.errors.required" class="error">
+                  Account No. is required.
+                </div>
+                <div *ngIf="bidderAccountNumber.errors.pattern" class="error">
+                  Invalid Account No.
+                </div>
+              </div>
+            </div>
+            <div class="nested-form">
+              <label for="ifsc" class="form-label">IFSC Code:</label>
+              <input class="form-control" type="text" name="ifsc" formControlName="bidderIFSC" />
+              <div
+                *ngIf="  bidderIFSC.invalid && (bidderIFSC.dirty || bidderIFSC.touched) " class="alert-message" >
+                <div *ngIf="bidderIFSC.errors.required" class="error">
+                  IFSC Code is required.
+                </div>
+                <div *ngIf="bidderIFSC.errors.pattern" class="error">Invalid IFSC</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="step==2">
+        <div class="form">
+          <h4> <p style="width: 30%">Documents</p></h4>
+          <div class="document">
+            <label for="aadhar" class="form-label">Aadhar Card No.:</label>
+            <input class="form-control" type="file" name="fileToUpload" formControlName="bidderAADHAR" />
+          </div>
+          <div *ngIf=" bidderAADHAR.invalid && (bidderAADHAR.dirty || bidderAADHAR.touched) " class="alert-message">
+            <div *ngIf="bidderAADHAR.errors.required" class="error">
+              Aadhar card is required.
+            </div>
+          </div>
+          <div class="document">
+            <label for="pan" class="form-label">Pan Card :</label>
+            <input class="form-control" type="file" name="fileToUpload" formControlName="bidderPAN" />
+          </div>
+          <div
+            *ngIf="bidderPAN.invalid && (bidderPAN.dirty || bidderPAN.touched)"
+            class="alert-message"
+          >
+            <div *ngIf="bidderPAN.errors.required" class="error">Pan Card is required.</div>
+          </div>
+          <div class="document">
+            <label for="certificate" class="form-label">Trader License:</label>
+            <input class="form-control" type="file" name="fileToUpload" formControlName="bidderLicense" />
+          </div>
+          <div *ngIf=" bidderLicense.invalid && (bidderLicense.dirty || bidderLicense.touched) " class="alert-message" >
+            <div *ngIf="bidderLicense.errors.required" class="error">
+              Trader License is required.
+            </div>
+          </div>
+        </div>
+        <p> </p>
+        <div class="form">
+          <h4> <p style="width: 30%">Password</p></h4>
+          <div class="form-group">
+            <div class="nested-form">
+              <label for="password" class="form-label">Password:</label>
+              <input class="form-control" type="password" name="password" formControlName="password" />
+              <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert-message" >
+                <div *ngIf="password.errors.required" class="error">Password is required.</div>
+                <div *ngIf="password.errors.pattern" class="error">
+                  Must contain 1 Uppercase, 1 Lowercase, 1 Special Character, 1
+                  Number and Minimum 8 characters
+                </div>
+              </div>
+            </div>
+            <div class="nested-form">
+              <label for="password" class="form-label">Confirm Password:</label>
+              <input class="form-control" type="password" name="confirmPassword" formControlName="confirmPassword" />
+             
+            </div>
+          </div>
+        </div>
+        <p>
+          Already have an account?
+          <a class="log-btn" routerLink="/login" routerLinkActive="active"
+            >Login</a
+          ></p>
+      </div>
+      <div>
+        <p> </p>
+      </div>
+    
+        
+      <div style="overflow:auto;">
+        <div style="float:right;">
+    
+        <button id="prevBtn" (click)="Previous()"  *ngIf="step!=1" >Previous</button>
+            <button id="nextBtn" (click)="next()" *ngIf="step!=2">Next</button>
+            <button type="submit" *ngIf="step==2">Submit</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+
+
+ 
