@@ -10,6 +10,11 @@ import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { FarmerRequestComponent } from './farmer-request/farmer-request.component';
+import { ListOfFarmersComponent } from './list-of-farmers/list-of-farmers.component';
+import { BidderRequestComponent } from './bidder-request/bidder-request.component';
+import { ListOfBiddersComponent } from './list-of-bidders/list-of-bidders.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { ContactComponent } from './contact/contact.component';
     AboutComponent,
     HeaderComponent,
     FooterComponent,
-    ContactComponent
+    ContactComponent,
+    AdminDashboardComponent,
+    FarmerRequestComponent,
+    ListOfFarmersComponent,
+    BidderRequestComponent,
+    ListOfBiddersComponent
   ],
   imports: [
     BrowserModule,
