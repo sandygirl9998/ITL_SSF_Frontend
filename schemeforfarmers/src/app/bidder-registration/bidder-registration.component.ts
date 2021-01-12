@@ -20,19 +20,19 @@ export class BidderRegistrationComponent implements OnInit {
 
   BidderRegisterForm(): void {
     this.bidderRegisterForm = this.fb.group({
-      name: [ '', [  Validators.required, Validators.pattern('^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$'), ], ],
+      name: ['', [ Validators.required, Validators.pattern('^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$'), ], ],
       emailId: ['', [Validators.required, Validators.email]],
       bidderContact: [ '', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')], ],
       bidderAddressLine1: [ '', [Validators.required, Validators.maxLength(255)], ],
       bidderAddressLine2: [ '', [Validators.required, Validators.maxLength(255)], ],
-      bidderAccountNumber: [ '',  [Validators.required, Validators.pattern('^[0-9]{9,18}?$')], ],
-      bidderIFSC: ['', [Validators.required, Validators.pattern('^[A-Z]{4}0[A-Z0-9]{6}$')],  ],
+      bidderAccountNumber: [ '', [Validators.required, Validators.pattern('^[0-9]{9,18}?$')],],
+      bidderIFSC: [ '', [Validators.required, Validators.pattern('^[A-Z]{4}0[A-Z0-9]{6}$')], ],
       bidderAADHAR: ['', Validators.required],
       bidderPAN: ['', Validators.required],
       bidderState: ['', Validators.required],
       bidderCity: ['', Validators.required],
       bidderLicense: ['', Validators.required],
-      password: [ '', [ Validators.required, Validators.pattern( '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$'  ), ], ],
+      password: [ '', [ Validators.required, Validators.pattern( '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$' ), ], ],
       confirmPassword: [],
         
       
@@ -108,7 +108,7 @@ export class BidderRegistrationComponent implements OnInit {
     this.step=this.step+1;
   }
 
-  onRegister(): void {
+  onSubmit(): void {
     
     if (this.bidderRegisterForm.valid) {
           console.log(this.bidderRegisterForm.value);

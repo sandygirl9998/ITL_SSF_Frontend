@@ -3,6 +3,8 @@ import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { BidderRegistrationComponent } from './bidder-registration/bidder-registration.component';
+import { FarmerRegistrationComponent } from './farmer-registration/farmer-registration.component';
 
 
 const routes: Routes = [
@@ -10,7 +12,8 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component:ContactComponent},
-  {path:'bidderReg',component:BidderRegistrationComponent}
+  {path:'bidderReg',component:BidderRegistrationComponent},
+  {path:'farmerReg',component:FarmerRegistrationComponent}
 ];
 
 @NgModule({

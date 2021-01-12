@@ -4,7 +4,7 @@
       <div class="alert-message" *ngIf="allAlert">
         {{ allAlert }}
       </div>
-      <form [formGroup]="bidderRegisterForm" (ngSubmit)="onRegister()" id="regForm"> 
+      <form [formGroup]="bidderRegisterForm" (ngSubmit)="onSubmit()" id="regForm"> 
         <h2 align="center">Bidder Registration Form </h2>
         <div *ngIf="step==1">   
         <div class="form">
