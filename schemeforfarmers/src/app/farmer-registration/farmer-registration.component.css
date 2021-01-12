@@ -1,0 +1,38 @@
+
+#regForm {
+    background-color: #ffffff;
+    margin: 100px auto;
+    font-family: Raleway;
+    padding: 40px;
+    width: 70%;
+    border-radius: 25px;
+    background: #73AD21;
+    
+  }
+  button {
+    background-color: #79b67b;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+  }
+  h4{
+    color: #ffffff;
+    background-color: rgb(151, 58, 21);
+    
+  }
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  #prevBtn {
+    background-color: #bbbbbb;
+  }
+
+  .error{
+    background-color: lightgrey;
+    color: red;
+    border-radius: 0px 0px 10px 10px ;
+  }
