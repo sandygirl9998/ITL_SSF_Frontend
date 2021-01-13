@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'farmerrequests', component:FarmerRequestComponent},
   {path:'bidderrequests', component:BidderRequestComponent},
   {path:'listfarmers', component:ListOfFarmersComponent},
-  {path:'listbidders', component:ListOfBiddersComponent}
+  {path:'listbidders', component:ListOfBiddersComponent},
 ];
 
 @NgModule({

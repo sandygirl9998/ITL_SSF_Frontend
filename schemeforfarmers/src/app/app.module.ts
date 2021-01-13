@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { HeaderComponent } from './header/header.component';
@@ -15,6 +15,7 @@ import { FarmerRequestComponent } from './farmer-request/farmer-request.componen
 import { ListOfFarmersComponent } from './list-of-farmers/list-of-farmers.component';
 import { BidderRequestComponent } from './bidder-request/bidder-request.component';
 import { ListOfBiddersComponent } from './list-of-bidders/list-of-bidders.component';
+
 
 @NgModule({
   declarations: [
@@ -29,12 +30,14 @@ import { ListOfBiddersComponent } from './list-of-bidders/list-of-bidders.compon
     ListOfFarmersComponent,
     BidderRequestComponent,
     ListOfBiddersComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+   ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
