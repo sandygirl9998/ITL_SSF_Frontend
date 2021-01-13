@@ -1,0 +1,60 @@
+
+<div class="container-fluid">    
+    <div class="container">
+
+      <div class="alert-message" *ngIf="allAlert">
+        {{ allAlert }}
+      </div>
+
+
+      <form [formGroup]="bidderDocsForm" (ngSubmit)="onSubmit()" id="regForm"> 
+        <h2 align="center">Bidder Registration Form </h2>
+        
+        <div class="form">
+        <h4> <p style="width: 30%">Documents</p></h4>
+        <div class="document">
+        <label for="aadhar" class="form-label">Aadhar Card No.:</label>
+        <input class="form-control" type="file" name="fileToUpload" (change)="onFileChange1($event)" formControlName="bidderAADHAR" />
+         </div>
+        <div *ngIf=" bidderAADHAR.invalid && (bidderAADHAR.dirty || bidderAADHAR.touched) " class="alert-message">
+        <div *ngIf="bidderAADHAR.errors.required" class="error">
+        Aadhar card is required.
+        </div>
+        </div>
+    <div class="document">
+      <label for="pan" class="form-label">Pan Card :</label>
+      <input class="form-control" type="file" name="fileToUpload" (change)="onFileChange2($event)" formControlName="bidderPAN" />
+    </div>
+    <div
+      *ngIf="bidderPAN.invalid && (bidderPAN.dirty || bidderPAN.touched)"
+      class="alert-message"
+    >
+      <div *ngIf="bidderPAN.errors.required" class="error">Pan Card is required.</div>
+    </div>
+    <div class="document">
+      <label for="certificate" class="form-label">Trader License:</label>
+      <input class="form-control" type="file" name="fileToUpload" (change)="onFileChange3($event)" formControlName="bidderLicense" />
+    </div>
+    <div *ngIf=" bidderLicense.invalid && (bidderLicense.dirty || bidderLicense.touched) " class="alert-message" >
+      <div *ngIf="bidderLicense.errors.required" class="error">
+        Trader License is required.
+      </div>
+    </div>
+  </div>
+  <p> </p>
+  
+  <p>
+    Already have an account?
+    <a class="log-btn" routerLink="/login" routerLinkActive="active"
+      >Login</a
+    ></p>
+    <div style="overflow:auto;">
+        <div style="float:right;">
+    
+       
+            <button type="submit" >Submit</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>

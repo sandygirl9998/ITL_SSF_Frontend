@@ -8,7 +8,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ListOfBiddersComponent } from './list-of-bidders/list-of-bidders.component';
 import { BidderRequestComponent } from './bidder-request/bidder-request.component';
-
+import { BidderRegistrationComponent } from './bidder-registration/bidder-registration.component';
+import { FarmerRegistrationComponent } from './farmer-registration/farmer-registration.component';
+import { BidderDocsComponent } from './bidder-docs/bidder-docs.component';
+import { FarmerDocsComponent } from './farmer-docs/farmer-docs.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -20,6 +23,10 @@ const routes: Routes = [
   {path:'bidderrequests', component:BidderRequestComponent},
   {path:'listfarmers', component:ListOfFarmersComponent},
   {path:'listbidders', component:ListOfBiddersComponent},
+  {path:'bidderReg',component:BidderRegistrationComponent},
+  {path:'bidDocs',component:BidderDocsComponent},
+  {path:'farmerReg',component:FarmerRegistrationComponent},
+  {path:'farmerDocs',component:FarmerDocsComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,57 @@
+<p>list-of-bidders works!</p>
+
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no pending requests -->
+    <div  *ngIf="data.length == 0">
+      <p>There is no pending requests</p>
+    </div>
+  
+    <!-- Employees list table, it hides when there is no employee -->
+    <div *ngIf="data.length !== 0">
+      <h3>List of Bidders</h3>
+  
+      <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th scope="col">User Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Account Number</th>
+                    <th scope="col">IFSC Code</th>
+                    <th scope="col">PAN Card</th>
+                    <th scope="col">AADHAR Card</th>
+                    <th scope="col">Farmer Certificate</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bidder of data">
+                    <td>{{bidder.userId}}</td>
+                    <td>{{bidder.name}}</td>
+                    <td>{{bidder.emailId}}</td>
+                    <td>{{bidder.bidderContact}}</td>
+                    <td>{{bidder.bidderAddressLine1}},<br>
+                        {{bidder.bidderAddressLine2}},<br>
+                        {{bidder.bidderCity}},<br>
+                        {{bidder.bidderState}},<br>
+                        {{bidder.bidderPINCODE}}.
+                    </td>
+                    
+                    <td>{{bidder.bidderAccountNumber}}</td>
+                    <td>{{bidder.bidderIFSC}}</td>
+
+                    <td><img src={{bidder.bidderPAN}} width="100" height="100" /></td>
+                    <td><img src={{bidder.bidderAADHAR}} width="100" height="100" /></td>
+                    <td><img src={{bidder.bidderLicense}} width="100" height="100" /></td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div>

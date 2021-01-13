@@ -1,0 +1,47 @@
+<p>bidder-request works!</p>
+
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no pending requests -->
+    <div  *ngIf="data.length == 0">
+      <p>There is no pending requests</p>
+    </div>
+  
+    <!-- Employees list table, it hides when there is no employee -->
+    <div *ngIf="data.length !== 0">
+      <h3>Farmer Registration Requests</h3>
+  
+      <div>
+        <table border="1">
+          <thead>
+            <tr>
+              <th scope="col">User Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">PAN Card</th>
+              <th scope="col">AADHAR Card</th>
+              <th scope="col">Bidder License</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bidder of data">
+              <td>{{bidder.userId}}</td>
+              <td>{{bidder.name}}</td>
+              <td>{{bidder.emailId}}</td>
+              <td><img src={{bidder.bidderPAN}} width="200" height="200" /></td>
+              <td><img src={{bidder.bidderAADHAR}} width="200" height="200" /></td>
+              <td><img src={{bidder.bidderLicense}} width="200" height="200" /></td>
+              <td>
+                <button (click)="acceptBidder(bidder.userId)">Approve</button>
+                &nbsp;
+                <button (click)="rejectBidder(bidder.userId)">Reject</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div>

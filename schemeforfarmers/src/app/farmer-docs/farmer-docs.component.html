@@ -1,0 +1,58 @@
+
+<div class="container-fluid">    
+    <div class="container">
+
+      <div class="alert-message" *ngIf="allAlert">
+        {{ allAlert }}
+      </div>
+
+
+      <form [formGroup]="farmerDocsForm" (ngSubmit)="onSubmit()" id="regForm"> 
+        <h2 align="center">Farmer Registration Form </h2>
+        
+        <div class="form">
+        <h4> <p style="width: 30%">Documents</p></h4>
+        <div class="document">
+        <label for="aadhar" class="form-label">Aadhar Card No.:</label>
+        <input class="form-control" type="file" name="fileToUpload" formControlName="farmerAADHAR" (change)="onFileChange1($event)"/>
+         </div>
+        <div *ngIf=" farmerAADHAR.invalid && (farmerAADHAR.dirty || farmerAADHAR.touched) " class="alert-message">
+        <div *ngIf="farmerAADHAR.errors.required" class="error">
+        Aadhar card is required.
+        </div>
+        </div>
+    <div class="document">
+      <label for="pan" class="form-label">Pan Card :</label>
+      <input class="form-control" type="file" name="fileToUpload" formControlName="farmerPAN" (change)="onFileChange2($event)"/>
+    </div>
+    <div
+      *ngIf="farmerPAN.invalid && (farmerPAN.dirty || farmerPAN.touched)"
+      class="alert-message"
+    >
+      <div *ngIf="farmerPAN.errors.required" class="error">Pan Card is required.</div>
+    </div>
+    <div class="document">
+      <label for="certificate" class="form-label">Trader Certificate:</label>
+      <input class="form-control" type="file" name="fileToUpload" formControlName="farmerCertificate" (change)="onFileChange3($event)"/>
+    </div>
+    <div *ngIf=" farmerCertificate.invalid && (farmerCertificate.dirty || farmerCertificate.touched) " class="alert-message" >
+      <div *ngIf="farmerCertificate.errors.required" class="error">
+        Trader Certificate is required.
+      </div>
+    </div>
+  </div>
+  <p> </p>
+  <p>
+    Already have an account?
+    <a class="log-btn" routerLink="/login" routerLinkActive="active"
+      >Login</a
+    ></p>
+    <div style="overflow:auto;">
+        <div style="float:right;">
+
+            <button type="submit" >Submit</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>

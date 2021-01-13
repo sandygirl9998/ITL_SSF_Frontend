@@ -1,0 +1,47 @@
+<p>farmer-request works!</p>
+
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no pending requests -->
+    <div  *ngIf="data.length == 0">
+      <p>There is no pending requests</p>
+    </div>
+  
+    <!-- Employees list table, it hides when there is no employee -->
+    <div *ngIf="data.length !== 0">
+      <h3>Farmer Registration Requests</h3>
+  
+      <div>
+        <table border="1">
+          <thead>
+            <tr>
+              <th scope="col">User Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">PAN Card</th>
+              <th scope="col">AADHAR Card</th>
+              <th scope="col">Farmer Certificate</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let farmer of data">
+              <td>{{farmer.userId}}</td>
+              <td>{{farmer.name}}</td>
+              <td>{{farmer.emailId}}</td>
+              <td><img src={{farmer.farmerPAN}} width="200" height="200" /></td>
+              <td><img src={{farmer.farmerAADHAR}} width="200" height="200" /></td>
+              <td><img src={{farmer.farmerCertificate}} width="200" height="200" /></td>
+              <td>
+                <button (click)="acceptFarmer(farmer.userId)">Approve</button>
+                &nbsp;
+                <button (click)="rejectFarmer(farmer.userId)">Reject</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div>

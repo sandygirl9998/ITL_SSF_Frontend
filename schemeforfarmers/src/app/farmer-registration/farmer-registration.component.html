@@ -1,0 +1,165 @@
+<div class="container-fluid">
+    
+  <div class="container">
+    <div class="alert-message" *ngIf="allAlert">
+      {{ allAlert }}
+    </div>
+    <form [formGroup]="farmerRegisterForm" (ngSubmit)="onSubmit()" id="regForm"> 
+      <h2 align="center">Farmer Registration Form </h2>
+      <div *ngIf="step==1">   
+      <div class="form">
+            
+       <h4> <p style="width: 30%">Personal Details</p></h4>
+        <label class="form-label" for="username">Full Name:</label>
+        <input class="form-control" type="text" name="name" formControlName="name" />
+        <div
+          *ngIf="name.invalid && (name.dirty || name.touched)" class="alert-message" >
+          <div *ngIf="name.errors.required" class="error">Name is required.</div>
+          <div *ngIf="name.errors.pattern" class="error">Invalid Name Format</div>
+        </div>
+
+
+        <div class="form-group">
+          <div class="nested-form">
+            <label for="email" class="form-label">Email:</label>
+            <input class="form-control" type="email" name="email" formControlName="emailId" />
+            <div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="alert-message" >
+              <div *ngIf="emailId.errors.required" class="error">Email is required.</div>
+              <div *ngIf="emailId.errors.email" class="error">Invalid Email Id</div>
+            </div>
+          </div>
+
+
+          <div class="nested-form">
+            <label for="contact" class="form-label">Contact:</label>
+            <input class="form-control" type="number" name="contact" formControlName="farmerContact" />
+            <div *ngIf=" farmerContact.invalid &&  (farmerContact.dirty || farmerContact.touched) "  class="alert-message" >
+              <div *ngIf="farmerContact.errors.required" class="error">
+                Contact is required.
+              </div>
+              <div *ngIf="farmerContact.errors.pattern" class="error">
+                Invalid Contact Number
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p></p>
+        <h4> <p style="width: 30%">Address Details</p></h4>
+        <div class="form-group">
+          <div class="nested-form">
+            <label for="address" class="form-label">Address Line 1:</label>
+            <textarea rows="3" formControlName="farmerAddressLine1" class="form-control"></textarea>
+            <div *ngIf=" farmerAddressLine1.invalid && (farmerAddressLine1.dirty || farmerAddressLine1.touched) " class="alert-message" >
+              <div *ngIf="farmerAddressLine1.errors.required" class="error">
+                 Address Field is required
+              </div>
+            </div>
+          </div>
+
+
+          <div class="nested-form">
+            <label for="address" class="form-label">Address Line 2:</label>
+            <textarea rows="3" formControlName="farmerAddressLine2" class="form-control"></textarea>
+            <div *ngIf=" farmerAddressLine2.invalid && (farmerAddressLine2.dirty || farmerAddressLine2.touched) " class="alert-message" >
+              <div *ngIf="farmerAddressLine2.errors.required" class="error">
+                
+                 Address Field is required
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nested-form">
+          <div class="form-row mb-4">
+            <div class="col">
+              <label for="state">State: </label>
+              <select class="form-control"  placeholder="State" (change)="changeState($event.target.value)" formControlName="farmerState">
+                <option>--Choose State--</option>
+                <option *ngFor="let state of States">{{ state.name }}</option>
+              </select>
+              <div *ngIf=" farmerState.invalid &&  (farmerState.dirty || farmerState.touched) " class="alert-message" >
+                <div *ngIf="farmerState.errors.required" class="error">
+                  State is required.
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <label for="state">City:</label>
+              <select class="form-control" placeholder="City" formControlName="farmerCity" >
+                <option>--Choose City--</option>
+                <option *ngFor="let city of cities">{{ city }}</option>
+              </select>
+              <div *ngIf=" farmerCity.invalid && (farmerCity.dirty || farmerCity.touched) " class="alert-message" >
+              
+                <div *ngIf="farmerCity.errors.required" class="error">City is required.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      <div class="form">
+        <h4> <p style="width: 30%">Bank Details</p></h4>
+        <div class="form-group">
+          <div class="nested-form">
+            <label for="account" class="form-label">Account No.:</label>
+            <input class="form-control" type="number" name="account" formControlName="farmerAccountNumber"
+            />
+            <div  *ngIf=" farmerAccountNumber.invalid &&  (farmerAccountNumber.dirty || farmerAccountNumber.touched)" class="alert-message" >
+              <div *ngIf="farmerAccountNumber.errors.required" class="error">
+                Account No. is required.
+              </div>
+              <div *ngIf="farmerAccountNumber.errors.pattern" class="error">
+                Invalid Account No.
+              </div>
+            </div>
+          </div>
+          <div class="nested-form">
+            <label for="ifsc" class="form-label">IFSC Code:</label>
+            <input class="form-control" type="text" name="ifsc" formControlName="farmerIFSC" />
+            <div
+              *ngIf="  farmerIFSC.invalid && (farmerIFSC.dirty || farmerIFSC.touched) " class="alert-message" >
+              <div *ngIf="farmerIFSC.errors.required" class="error">
+                IFSC Code is required.
+              </div>
+              <div *ngIf="farmerIFSC.errors.pattern" class="error">Invalid IFSC</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form">
+      <h4> <p style="width: 30%">Password</p></h4>
+      <div class="form-group">
+        <div class="nested-form">
+          <label for="password" class="form-label">Password:</label>
+          <input class="form-control" type="password" name="password" formControlName="password" />
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert-message" >
+            <div *ngIf="password.errors.required" class="error">Password is required.</div>
+            <div *ngIf="password.errors.pattern" class="error">
+              Must contain 1 Uppercase, 1 Lowercase, 1 Special Character, 1
+              Number and Minimum 8 characters
+            </div>
+          </div>
+        </div>
+        <div class="nested-form">
+          <label for="password" class="form-label">Confirm Password:</label>
+          <input class="form-control" type="password" name="confirmPassword" formControlName="confirmPassword" />
+         
+        </div>
+      </div>
+    </div>    
+    
+      
+    <div style="overflow:auto;">
+      <div style="float:right;">
+  
+      
+          <button type="submit" >Submit</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+

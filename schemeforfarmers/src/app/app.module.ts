@@ -15,6 +15,10 @@ import { FarmerRequestComponent } from './farmer-request/farmer-request.componen
 import { ListOfFarmersComponent } from './list-of-farmers/list-of-farmers.component';
 import { BidderRequestComponent } from './bidder-request/bidder-request.component';
 import { ListOfBiddersComponent } from './list-of-bidders/list-of-bidders.component';
+import { BidderRegistrationComponent } from './bidder-registration/bidder-registration.component';
+import { FarmerRegistrationComponent } from './farmer-registration/farmer-registration.component';
+import { BidderDocsComponent } from './bidder-docs/bidder-docs.component';
+import { FarmerDocsComponent } from './farmer-docs/farmer-docs.component';
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import { ListOfBiddersComponent } from './list-of-bidders/list-of-bidders.compon
     FarmerRequestComponent,
     ListOfFarmersComponent,
     BidderRequestComponent,
-    ListOfBiddersComponent
+    ListOfBiddersComponent,
+    BidderRegistrationComponent,
+    FarmerRegistrationComponent,
+    BidderDocsComponent,
+    FarmerDocsComponent
 
   ],
   imports: [
