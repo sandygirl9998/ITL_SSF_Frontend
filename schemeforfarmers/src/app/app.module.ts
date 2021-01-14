@@ -22,6 +22,11 @@ import { FarmerDocsComponent } from './farmer-docs/farmer-docs.component';
 import { ApplyComponent } from './apply/apply.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CropSellRequestComponent } from './crop-sell-request/crop-sell-request.component';
+import { ViewAuctionComponent } from './view-auction/view-auction.component';
+import { ViewPolicyComponent } from './view-policy/view-policy.component';
+import { PolicyClaimApproveComponent } from './policy-claim-approve/policy-claim-approve.component';
+import { BidderDashboardComponent } from './bidder-dashboard/bidder-dashboard.component';
+import { CropsInAuctionComponent } from './crops-in-auction/crops-in-auction.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,12 @@ import { CropSellRequestComponent } from './crop-sell-request/crop-sell-request.
     FarmerDocsComponent,
     ApplyComponent,
     DashboardComponent,
-    CropSellRequestComponent
+    CropSellRequestComponent,
+    ViewAuctionComponent,
+    ViewPolicyComponent,
+    PolicyClaimApproveComponent,
+    BidderDashboardComponent,
+    CropsInAuctionComponent
 
   ],
   imports: [

@@ -1,0 +1,51 @@
+<link
+  href="//fonts.googleapis.com/css?family=Roboto:100,400,300"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  rel="stylesheet"
+  href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+/>
+<div>
+  <div class="content">
+    <div class="quiz-window">
+      <div class="quiz-window-header">
+        <div class="quiz-window-title" style="color: whitesmoke;">View Auction</div>
+        <button class="quiz-window-close">&times;</button>
+      </div>
+      <div class="quiz-window-body">
+        <div *ngIf="crops.length == 0">
+            <p>There is no pending requests</p>
+        </div>
+        <table>
+          <tr>
+            <th>Farmer ID</th>
+            <th>Crop ID</th>
+            <th>Crop Name</th>
+            <th>Quantity</th>
+            <th>Fertilizer</th>
+            <th>Crop Base Price</th>
+            <th>Crop Current Bid</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let x of crops">
+            <td>{{x.farmer.userId}}</td>
+             <td>{{x.cropId}}</td>
+            <td>{{x.cropName}}</td>
+            <td>{{x.cropQuantity}}</td>
+            <td>{{x.fertilizer}}</td>
+            <td>{{x.cropBasePrice}}</td>
+            <td>{{x.currentBid}}</td>
+            <td><button (click)="finalizeBid(x.cropId)">Finalize Bid</button></td>
+        </tr>
+        </table>
+        <div class="guiz-awards-buttons">
+          <button class="guiz-awards-but-back" (click)=goback()> 
+            <i class="fa fa-angle-left"></i> Back
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

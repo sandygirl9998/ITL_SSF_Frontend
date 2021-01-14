@@ -1,0 +1,79 @@
+<link
+  href="//fonts.googleapis.com/css?family=Roboto:100,400,300"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  rel="stylesheet"
+  href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+/>
+<div>
+  <div class="content">
+    <div class="quiz-window">
+      <div class="quiz-window-header">
+        <div class="quiz-window-title" style="color: whitesmoke;">View Auction</div>
+        <button class="quiz-window-close">&times;</button>
+      </div>
+      <div class="quiz-window-body">
+        <div *ngIf="crops.length == 0">
+            <p>There is no pending requests</p>
+        </div>
+        <table>
+          <tr>
+            <th>Crop Id</th>
+            <th>Crop Type</th>
+            <th>Crop Name</th>
+            <th>Crop Base Price</th>
+            <th>Crop Current Bid</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let x of crops">
+            <td>{{x.cropId}}</td>
+            <td>{{x.cropType}}</td>
+            <td>{{x.cropName}}</td>
+            <td>{{x.cropBasePrice}}</td>
+            <td>{{x.currentBid}}</td>
+            <td><button type="button" class="btn btn-info btn-lg" (click)="openModalDialog()">Place Bid</button></td>
+<!--  -->
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+
+<!-- modal -->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <!-- modal-dialog -->
+    <div class="modal-dialog" role="document">
+        <!-- modal-content -->
+        <div class="modal-content">
+         
+
+            <!-- modal-body -->
+            <div class="modal-body">
+                <form [formGroup]="logedInForm" (ngSubmit)="mdfLogin(logedInForm.value)">
+                    <div>
+                        <input type="number" class="textbox" name="bidAmount" placeholder="Amount" formControlName="bidAmount">
+                    </div>
+                    <div>
+                        <input type="submit" class="btn btn-info btn-lg" value="BID" [disabled]="!logedInForm.valid">
+                    </div>
+                </form>
+            </div>
+
+            <!-- modal-footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="closeModalDialog()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
+        </tr>
+        </table>
+        <div class="guiz-awards-buttons">
+          <button class="guiz-awards-but-back" (click)=goback()> 
+            <i class="fa fa-angle-left"></i> Back
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

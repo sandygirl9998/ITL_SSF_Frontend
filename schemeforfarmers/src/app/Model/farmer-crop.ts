@@ -5,6 +5,7 @@ export class FarmerCrop {
       farmer:User;
         cropId: number;
         cropName: string;
+        public cropType:string;
         public fertilizer:string;
     public cropBasePrice:number;
     public cropSoldPrice:number;

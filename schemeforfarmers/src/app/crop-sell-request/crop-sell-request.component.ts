@@ -9,9 +9,12 @@ import { AdminService } from '../Service/admin.service';
   styleUrls: ['./crop-sell-request.component.css']
 })
 export class CropSellRequestComponent implements OnInit {
-  //crops: Crop[] = [];
+  
   crops: FarmerCrop[] = [];
-  // data: any = [];
+  adminApprove : any = 'Approved';
+  adminReject : any = 'Rejected';
+  cropSoldStatus : any ='In Market';
+  
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {
@@ -24,6 +27,24 @@ export class CropSellRequestComponent implements OnInit {
       this.crops = d;
     });
     console.log(this.crops);
+  }
+
+  acceptCrop(userid,cropid){
+    
+    console.log("Approve crop with id="+cropid);
+    this.adminService.approveCrop(userid,cropid,this.cropSoldStatus,this.adminApprove)
+      .subscribe(data => {
+        this.ngOnInit();
+      });
+  }
+
+  rejectCrop(userid,cropid){
+    
+    console.log("Approve Farmer with id="+cropid);
+    this.adminService.approveCrop(userid,cropid,this.cropSoldStatus,this.adminReject)
+      .subscribe(data => {
+        this.ngOnInit();
+      });
   }
 
 }

@@ -1,3 +1,8 @@
+import { CropsInAuctionComponent } from './crops-in-auction/crops-in-auction.component';
+import { BidderDashboardComponent } from './bidder-dashboard/bidder-dashboard.component';
+import { PolicyClaimApproveComponent } from './policy-claim-approve/policy-claim-approve.component';
+import { ViewPolicyComponent } from './view-policy/view-policy.component';
+import { ViewAuctionComponent } from './view-auction/view-auction.component';
 import { ListOfFarmersComponent } from './list-of-farmers/list-of-farmers.component';
 import { FarmerRequestComponent } from './farmer-request/farmer-request.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
@@ -31,7 +36,12 @@ const routes: Routes = [
   {path:'farmerDocs',component:FarmerDocsComponent},
   {path:'apply',component:ApplyComponent},
   {path:'dashboard',component:DashboardComponent},
-  {path:'croprequests',component:CropSellRequestComponent}
+  {path:'croprequests',component:CropSellRequestComponent},
+  {path:'auction', component:ViewAuctionComponent},
+  {path:'viewpolicy', component:ViewPolicyComponent},
+  {path:'policyClaimRequest', component:PolicyClaimApproveComponent},
+  {path:'bidderdb',component:BidderDashboardComponent},
+  {path:'cropsInAuction',component:CropsInAuctionComponent}
 ];
 
 @NgModule({

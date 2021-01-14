@@ -60,4 +60,20 @@ export class AdminService {
     let url = "http://localhost:8000/cropSellRequestList";
     return this.httpClient.get<FarmerCrop[]>(url);
   }
+
+  approveCrop(userid:number,cropid:number,soldstatus:string,approve:string):Observable<FarmerCrop>{
+    let url = "http://localhost:8000/approveCropRequest?cropId="+cropid+"&userId="+userid+"&cropSoldStatus="+soldstatus+"&adminApproval="+approve;
+    console.log(url);
+    return this.httpClient.put<FarmerCrop>(url,userid);   
+  }
+  finalizeBid(cropid:number):Observable<FarmerCrop>{
+    let url = "http://localhost:8000/finalizeAuction?cropId="+cropid;
+    console.log(url);
+    return this.httpClient.put<FarmerCrop>(url,cropid);   
+  }
+  
+  getInMarketCrop():Observable<FarmerCrop[]>{
+    let url = "http://localhost:8000/cropsforbidder";
+    return this.httpClient.get<FarmerCrop[]>(url);
+  }
 }
