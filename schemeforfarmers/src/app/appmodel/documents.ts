@@ -2,6 +2,7 @@ export class Documents {
     public Aadhar :any;
     public PAN :any;
     public License :any;
-    public emailId: string;
+    public Certificate:any;
+    public emailId: any;
   }
   

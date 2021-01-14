@@ -15,7 +15,7 @@ export class FarmerRegistrationComponent implements OnInit {
   statusMsg: String;
   data: any;
   step: any=1;
-  farmerEmail: string;
+  farmerEmail: any;
   constructor(private fb: FormBuilder, private shared :SharedService ,private router: Router,private service:FarmerService) { }
 
   ngOnInit() {
@@ -94,10 +94,10 @@ export class FarmerRegistrationComponent implements OnInit {
   onSubmit(): void {
     
     if (this.farmerRegisterForm.valid) {
-        alert("Details Successfully Registered")
+        alert("Details Successfully Registered,Proceed to Uploading Documents")
           
           this.farmerEmail=this.farmerRegisterForm.value.emailId;
-      
+          
           this.shared.setEmail(this.farmerEmail);
           this.register();
           this.router.navigate(['/farmerDocs']);

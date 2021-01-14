@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SharedService } from '../Service/shared.service';
 import {Documents} from '../appmodel/documents'
-import { BidderService } from '../Service/bidder.service';
+import { FarmerService } from '../Service/farmer.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-farmer-docs',
   templateUrl: './farmer-docs.component.html',
@@ -15,7 +16,7 @@ farmerDocsForm: FormGroup;
   statusMsg: String;
   data: any;
   document: Documents=new Documents();
-   constructor(private fb: FormBuilder,private shared:SharedService,private service:BidderService) { }
+   constructor(private fb: FormBuilder,private shared:SharedService,private service:FarmerService,private router:Router) { }
 
   ngOnInit() {
       this.FarmerDocsRegisterForm();
@@ -67,18 +68,14 @@ farmerDocsForm: FormGroup;
     if (this.farmerDocsForm.valid) {
       console.log(this.document);
           console.log(this.farmerDocsForm.value);
-          this.register();
+          this.upload();
+          this.router.navigate(['/home']);
           
         } else {
           this.allAlert = 'All fields are mandatory to register.';
         }
       }
-      register() {
-        alert(JSON.stringify(this.document));
-        this.service.upload(this.document).subscribe(response => {
-          alert(JSON.stringify(response));
-        })
-      }
+     
       onFileChange1(event) {
         this.document.Aadhar = event.target.files[0];
       }
@@ -86,8 +83,17 @@ farmerDocsForm: FormGroup;
         this.document.PAN = event.target.files[0];
       }
       onFileChange3(event) {
-        this.document.License = event.target.files[0];
+        this.document.Certificate = event.target.files[0];
       }
-
+      upload() {
+        let formData: FormData = new FormData();
+        formData.append('Aadhar', this.document.Aadhar);
+        formData.append('PAN', this.document.PAN);
+        formData.append('Certificate', this.document.Certificate);
+        formData.append('emailId', this.document.emailId);
+        this.service.docUpload(formData).subscribe(response => {
+          alert(JSON.stringify(response));
+        });
+      }
 }
 

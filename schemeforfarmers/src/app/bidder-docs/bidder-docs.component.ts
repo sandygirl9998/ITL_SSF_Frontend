@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SharedService } from '../Service/shared.service';
 import{Documents} from '../appmodel/documents'
 import { BidderService } from '../Service/bidder.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-bidder-docs',
   templateUrl: './bidder-docs.component.html',
@@ -15,7 +16,7 @@ bidderDocsForm: FormGroup;
   statusMsg: String;
   data: any;
   document :Documents = new Documents();
-   constructor(private fb: FormBuilder,private shared:SharedService ,private service:BidderService) { }
+   constructor(private fb: FormBuilder,private shared:SharedService ,private router :Router,private service:BidderService) { }
 
   ngOnInit() {
       this.BidderDocsRegisterForm();
@@ -65,16 +66,23 @@ bidderDocsForm: FormGroup;
     if (this.bidderDocsForm.valid) {
       console.log(this.document);
           console.log(this.bidderDocsForm.value);
-          this.register();
+          this.upload();
+          this.router.navigate(['/home']);
         } else {
-          this.allAlert = 'All fields are mandatory to register.';
+         alert('All fields are mandatory to register.') ;
         }
       }
-      register() {
-        alert(JSON.stringify(this.document));
-        this.service.upload(this.document).subscribe(response => {
-          alert(JSON.stringify(response));
-        })
+     
+      upload() {
+        let formData: FormData = new FormData();
+        formData.append('Aadhar', this.document.Aadhar);
+        formData.append('PAN', this.document.PAN);
+        formData.append('License', this.document.License);
+        formData.append('emailId', this.document.emailId);
+        this.service.docUpload(formData).subscribe(response => {
+          alert(JSON.stringify(response) );
+        });
+        
       }
 
       onFileChange1(event) {

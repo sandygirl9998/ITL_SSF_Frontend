@@ -16,8 +16,8 @@ export class BidderService {
     return this.http.post(this.baseUrl + '/bregister', bidderRegisterForm);
   }
 
-  upload(document:Documents): Observable<any> { 
-   return this.http.post(this.baseUrl+"/bidder-doc", document); 
+  docUpload(formData: FormData) : Observable<any> {
+    return this.http.post(this.baseUrl+"/bidder-doc", formData); 
   }
 }
 

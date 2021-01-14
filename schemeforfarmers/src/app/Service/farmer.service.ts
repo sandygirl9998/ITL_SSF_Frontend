@@ -14,7 +14,8 @@ export class FarmerService {
   farmerRegister(farmerRegisterForm: FormGroup): Observable<any> {
     return this.http.post(this.baseUrl + '/fregister', farmerRegisterForm);
   }
-  upload(document:Documents): Observable<any> { 
-    return this.http.post(this.baseUrl+"/farmer-doc", document); 
-   }
+ 
+   docUpload(formData: FormData) : Observable<any> {
+    return this.http.post(this.baseUrl+"/farmer-doc", formData); 
+  }
 }
