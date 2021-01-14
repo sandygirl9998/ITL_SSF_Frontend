@@ -1,0 +1,93 @@
+<div class="container-fluid">
+  <div class="container">
+    
+    <div class="media border p-3">
+      
+      <div class="media-body">
+        <h2>Hello </h2>
+        <p>
+          Here you can Place Sell Request, View the Marketplace, Apply for
+          Insurance and Claim for Loss
+        </p>
+      </div>
+    </div>
+
+
+</div>
+<div class="card">
+  <h3>View Sold Crop History</h3>
+  <kbd>
+    <button
+      class="btn btn-primary"
+      [routerLink]="['add']"
+      style="float: right"
+    >
+      Place Sell Request
+    </button>
+  </kbd>
+
+  <div class="table-responsive-md">
+    <table class="table table-bordered table-hover table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Deal ID</th>
+          <th>Crop Type</th>
+          <th>Crop Name</th>
+          <th>Fertiliser Type</th>
+          <th>Quantity</th>
+          <th>Base Price (₹)</th>
+          <th>Sold Price (₹)</th>
+          <th>Status</th>
+        </tr>
+       
+       
+      </thead>
+    </table>
+  </div>
+  
+  <div class="card">
+    <h3>Insurance History</h3>
+    <kbd
+      ><button
+        class="btn btn-primary"
+        [routerLink]="['/apply']"
+        style="float: right"
+      >
+        Apply for insurance
+      </button></kbd
+    >
+    <div class="table-responsive-md">
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Policy No.</th>
+            <th>Insurance Company</th>
+            <th>Area</th>
+            <th>Season</th>
+            <th>Premium Share (₹)</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let i of insClaim">
+            <td>{{ i.policyId }}</td>
+            <td>{{ i.policyCompany }}</td>
+            <td>{{ i.policyCropArea }}</td>
+            <td>{{ i.season }}</td>
+            <td>{{ i.policySharedPremium }}</td>
+            <td>{{i.status}}</td>
+            <td>
+              <div>
+                <button
+                  type="button"
+                  [routerLink]="['/claim']"
+                  class="btn-success"
+                >
+                  Claim
+                </button>
+              </div>
+            </td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>

@@ -19,7 +19,8 @@ import { BidderRegistrationComponent } from './bidder-registration/bidder-regist
 import { FarmerRegistrationComponent } from './farmer-registration/farmer-registration.component';
 import { BidderDocsComponent } from './bidder-docs/bidder-docs.component';
 import { FarmerDocsComponent } from './farmer-docs/farmer-docs.component';
-
+import { ApplyComponent } from './apply/apply.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { FarmerDocsComponent } from './farmer-docs/farmer-docs.component';
     BidderRegistrationComponent,
     FarmerRegistrationComponent,
     BidderDocsComponent,
-    FarmerDocsComponent
+    FarmerDocsComponent,
+    ApplyComponent,
+    DashboardComponent
 
   ],
   imports: [

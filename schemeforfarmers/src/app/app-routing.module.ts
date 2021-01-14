@@ -12,7 +12,8 @@ import { BidderRegistrationComponent } from './bidder-registration/bidder-regist
 import { FarmerRegistrationComponent } from './farmer-registration/farmer-registration.component';
 import { BidderDocsComponent } from './bidder-docs/bidder-docs.component';
 import { FarmerDocsComponent } from './farmer-docs/farmer-docs.component';
-
+import{ApplyComponent} from './apply/apply.component';
+import{DashboardComponent} from './dashboard/dashboard.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
@@ -26,7 +27,9 @@ const routes: Routes = [
   {path:'bidderReg',component:BidderRegistrationComponent},
   {path:'bidDocs',component:BidderDocsComponent},
   {path:'farmerReg',component:FarmerRegistrationComponent},
-  {path:'farmerDocs',component:FarmerDocsComponent}
+  {path:'farmerDocs',component:FarmerDocsComponent},
+  {path:'apply',component:ApplyComponent},
+  {path:'dashboard',component:DashboardComponent}
 ];
 
 @NgModule({
