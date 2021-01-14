@@ -2,6 +2,8 @@ import { User } from './../Model/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Crop } from '../Model/crop';
+import { FarmerCrop } from '../Model/farmer-crop';
 
 @Injectable({
   providedIn: 'root'
@@ -52,5 +54,10 @@ export class AdminService {
   listBidder():Observable<User>{
     let url = "http://localhost:8000/bidderlist"
     return this.httpClient.get<User>(url);
+  }
+
+  getRequestCrop():Observable<FarmerCrop[]>{
+    let url = "http://localhost:8000/cropSellRequestList";
+    return this.httpClient.get<FarmerCrop[]>(url);
   }
 }

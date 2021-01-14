@@ -1,0 +1,53 @@
+<p>crop-sell-request works!</p>
+
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no pending requests -->
+    <div *ngIf="crops.length == 0">
+        <p>There is no pending requests</p>
+    </div>
+
+   
+    <div *ngIf="crops.length !== 0">
+        <h3>Registered Farmers</h3>
+
+        <div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th scope="col">Farmer Id</th>
+                        <th scope="col">Crop Id</th>
+                        <th scope="col">Crop name</th>
+                        <th scope="col">Crop Base Pricee</th>
+                        <th scope="col">Crop Quantity</th>
+                        <th scope="col">Fertilizer</th>
+                        <th scope="col">soil PH</th> -->
+                        <th scope="col">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of crops">
+                        <!-- <td>{{x.crop.farmer.userId}}</td> -->
+                        <!-- <td>{{x.crop.cropId}}</td>
+                        <td>{{x.crop.cropName}}</td>
+                        <td>{{x.crop.cropBasePrice}}</td>
+                        <td>{{x.crop.cropQuantity}}</td>
+                        <td>{{x.crop.fertilizer}}</td>
+                        <td>{{x.crop.soilPH}}</td> -->
+                        <td>{{x.farmer.userId}}</td>
+                         <td>{{x.cropId}}</td>
+                        <td>{{x.cropName}}</td>
+                        <td>{{x.cropBasePrice}}</td>
+                        <td><button>Approve</button>
+                            &nbsp;
+                            <button>Reject</button></td>
+                     
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>

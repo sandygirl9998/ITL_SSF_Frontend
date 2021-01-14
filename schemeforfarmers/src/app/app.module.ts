@@ -21,6 +21,7 @@ import { BidderDocsComponent } from './bidder-docs/bidder-docs.component';
 import { FarmerDocsComponent } from './farmer-docs/farmer-docs.component';
 import { ApplyComponent } from './apply/apply.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CropSellRequestComponent } from './crop-sell-request/crop-sell-request.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BidderDocsComponent,
     FarmerDocsComponent,
     ApplyComponent,
-    DashboardComponent
+    DashboardComponent,
+    CropSellRequestComponent
 
   ],
   imports: [
