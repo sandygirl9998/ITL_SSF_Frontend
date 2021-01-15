@@ -12,7 +12,7 @@ import { insuranceClaim } from '../appmodel/insuranceHistory.model';
   providedIn: 'root',
 })
 export class FarmerDashboardService {
-  baseUrl: string = 'http://localhost:8081';
+  baseUrl: string = 'http://localhost:8000';
   farmerId: number;
   //bids: items;
   //cropId: number;

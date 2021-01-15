@@ -27,6 +27,9 @@ import { ViewPolicyComponent } from './view-policy/view-policy.component';
 import { PolicyClaimApproveComponent } from './policy-claim-approve/policy-claim-approve.component';
 import { BidderDashboardComponent } from './bidder-dashboard/bidder-dashboard.component';
 import { CropsInAuctionComponent } from './crops-in-auction/crops-in-auction.component';
+import { LoginComponent } from './login/login.component';
+import { ClaimInsuranceInfoComponent } from './claim-insurance-info/claim-insurance-info.component';
+import { ClaimInsuranceDocsComponent } from './claim-insurance-docs/claim-insurance-docs.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import { CropsInAuctionComponent } from './crops-in-auction/crops-in-auction.com
     ViewPolicyComponent,
     PolicyClaimApproveComponent,
     BidderDashboardComponent,
-    CropsInAuctionComponent
+    CropsInAuctionComponent,
+    LoginComponent,
+    ClaimInsuranceInfoComponent,
+    ClaimInsuranceDocsComponent
 
   ],
   imports: [

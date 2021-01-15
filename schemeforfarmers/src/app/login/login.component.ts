@@ -22,18 +22,18 @@ export class LoginComponent implements OnInit {
       alert(JSON.stringify(response));
       console.log(response);
       if(response.status == 'SUCCESS') {
-        let userId = response.userId;
-        let userName = response.userName;
+        let userId = response.customerId;
+        let userName = response.customerName;
         let role=response.role;
         sessionStorage.setItem('userId', String(userId));
         sessionStorage.setItem('username', userName);
         
         if(role="Farmer")
-        this.router.navigate(['/farmer']);
+        this.router.navigate(['/dashboard']);
         else if(role="Bidder")
-        this.router.navigate(['bidder']);
+        this.router.navigate(['/bidderdb']);
         else 
-        this.router.navigate(['admin']);
+        this.router.navigate(['/admindb']);
       }
       else
         this.message = response.message;

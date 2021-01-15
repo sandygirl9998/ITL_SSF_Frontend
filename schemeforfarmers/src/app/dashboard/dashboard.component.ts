@@ -10,10 +10,12 @@ import { insuranceClaim } from '../appmodel/insuranceHistory.model';
 export class DashboardComponent implements OnInit {
   policies: policy[] = [];
   insClaim: insuranceClaim[] = [];
+  username:string;
   constructor(private service: FarmerDashboardService) { }
 
   ngOnInit() {
     this.service.viewInsurance().subscribe((data)=>(this.insClaim=data));
+    this.username= sessionStorage.getItem('username');
   }
 
 }
