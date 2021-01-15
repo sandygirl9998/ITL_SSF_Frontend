@@ -20,6 +20,7 @@ import { FarmerDocsComponent } from './farmer-docs/farmer-docs.component';
 import{ApplyComponent} from './apply/apply.component';
 import{DashboardComponent} from './dashboard/dashboard.component';
 import { CropSellRequestComponent } from './crop-sell-request/crop-sell-request.component';
+import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
@@ -41,7 +42,8 @@ const routes: Routes = [
   {path:'viewpolicy', component:ViewPolicyComponent},
   {path:'policyClaimRequest', component:PolicyClaimApproveComponent},
   {path:'bidderdb',component:BidderDashboardComponent},
-  {path:'cropsInAuction',component:CropsInAuctionComponent}
+  {path:'cropsInAuction',component:CropsInAuctionComponent},
+  {path:'login',component:LoginComponent}
 ];
 
 @NgModule({

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class InsuranceService {
-  private baseUrl: string = 'http://localhost:8081';
+  private baseUrl: string = 'http://localhost:8000';
   // claim: Claim;
 
   constructor(private http: HttpClient) {}

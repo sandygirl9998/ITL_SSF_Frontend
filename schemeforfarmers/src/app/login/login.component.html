@@ -1,0 +1,28 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="../assets/logo1.png" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form (ngSubmit)="loginCheck()">
+        <input type="email" id="login" class="fadeIn second" name="login" placeholder="Enter Email-Id" [(ngModel)]=login.username required>
+        <input type="password" id="password" class="fadeIn third" name="login" placeholder="Enter Password" [(ngModel)]=login.password required><br>
+        <input type="radio" name="role" class="fadeIn third"value="Farmer" [(ngModel)]=login.role required><span class="fadeIn third" >Farmer</span>&nbsp;
+        <input type="radio" name="role" class="fadeIn third"value="Bidder"[(ngModel)]=login.role required><span class="fadeIn third" >Bidder</span>&nbsp;
+        <input type="radio" name="role" class="fadeIn third" value="Admin"[(ngModel)]=login.role required><span class="fadeIn third"  >Admin</span><br>
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a><br>
+        <a class="underlineHover" >Don't have an account?</a><br>
+        Are you a <a class="underlineHover" href="#" routerLink="/farmerReg">Farmer</a> or a <a class="underlineHover" routerLink="/bidderReg"href="#">Bidder</a><br>
+      </div>
+  
+    </div>
+  </div>

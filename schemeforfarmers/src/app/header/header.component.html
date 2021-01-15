@@ -33,14 +33,6 @@
   
           <a  style="color:inherit; text-decoration: none; display:block; height: 100%">
             <button *ngIf = "loginbtn" class="login" (click)="iwillhide=true" >Login</button>
-              <div *ngIf="iwillhide" class="dropdown">
-              <div class="dropdown-content">
-                <a [routerLink]="['/login-farmer']"(click)="iwillhide=false">Farmer Login</a>
-                <a [routerLink]="['/login-bidder']" (click)="iwillhide=false">Bidder Login</a>
-                <a [routerLink]="['/login']" (click)="iwillhide=false">Admin Login</a>
-                <a (click)="iwillhide=false" href=#>Cancel</a>
-              </div>
-            </div>
             <button *ngIf = "logoutbtn" class="login" (click) = "logout()">Logout</button>
             </a>
           </div>
